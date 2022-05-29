@@ -8,6 +8,12 @@
   "short_name": "next PWA",
   "description": "this is test",
   "prefer_related_applications": true,
+  "related_applications": [
+    {
+      "platform": "webapp",
+      "url": "http://localhost:3000/sw.js"
+    }
+  ],
   "icons": [
     {
       "src": "/icon-192x192.png",

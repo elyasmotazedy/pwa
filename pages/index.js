@@ -3,7 +3,6 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import SnackBar from "my-react-snackbar";
-import App from "next/app";
 
 export default function Home() {
   const [showAlert, setShowAlert] = useState(true);
@@ -15,19 +14,24 @@ export default function Home() {
       setDeferredPrompt(event);
     });
 
-    // detect if user installed the app
-    window.addEventListener("appinstalled", function () {
-      console.log("Thank you for installing our app!");
-      setShowAlert(false);
-    });
-    window.onappinstalled = function () {
-      console.log("Thank you for installing our app!");
-      setShowAlert(false);
-    };
-    // window.addEventListener("appinstalled", (event) => {
-    //   console.log(`App installed`, event);
-    //   // app.logEvent("a2hs", "installed");
-    // });
+    async function getInstalledApps() {
+      const installedApps = await navigator.getInstalledRelatedApps();
+
+      console.log("installedApps", installedApps);
+    }
+
+    if ("getInstalledRelatedApps" in navigator) {
+      getInstalledApps();
+    } else {
+      console.log("not supported");
+    }
+
+    if (
+      navigator.standalone === true ||
+      window.matchMedia("(display-mode : standalone)").matches
+    ) {
+      console.log("asdsada");
+    }
   }, []);
 
   const showAlertInstall = (event) => {
@@ -36,7 +40,8 @@ export default function Home() {
       if (choiceResult.outcome === "accepted") {
         console.log("User accepted");
       }
-      // setDeferredPrompt(null);
+      setDeferredPrompt(null);
+      alert(JSON.stringify(choiceResult));
     });
   };
 

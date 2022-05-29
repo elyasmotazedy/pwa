@@ -30,8 +30,6 @@ export default function Home() {
       window.matchMedia("(display-mode: standalone)").matches ||
       window.navigator.standalone === true
     ) {
-      // hidden the button
-      alert("PWA");
       setShowAlert(false);
     } else {
       setShowAlert(true);
@@ -45,7 +43,6 @@ export default function Home() {
         console.log("User accepted");
       }
       setDeferredPrompt(null);
-      alert(JSON.stringify(choiceResult));
     });
   };
 

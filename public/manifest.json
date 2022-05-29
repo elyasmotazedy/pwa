@@ -8,6 +8,9 @@
   "short_name": "next PWA",
   "description": "this is test",
   "prefer_related_applications": true,
+  "fallbacks": {
+    "image": "/icon-192x192.png"
+  },
   "related_applications": [
     {
       "platform": "webapp",

@@ -5,7 +5,7 @@ import styles from "../styles/Home.module.css";
 import SnackBar from "my-react-snackbar";
 
 export default function Home() {
-  const [showAlert, setShowAlert] = useState(true);
+  const [showAlert, setShowAlert] = useState(false);
   const [deferredPrompt, setDeferredPrompt] = useState(null);
 
   useEffect(() => {
@@ -27,10 +27,14 @@ export default function Home() {
     }
 
     if (
-      navigator.standalone === true ||
-      window.matchMedia("(display-mode : standalone)").matches
+      window.matchMedia("(display-mode: standalone)").matches ||
+      window.navigator.standalone === true
     ) {
-      console.log("asdsada");
+      // hidden the button
+      alert("PWA");
+      setShowAlert(false);
+    } else {
+      setShowAlert(true);
     }
   }, []);
 

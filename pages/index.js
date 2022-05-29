@@ -14,22 +14,32 @@ export default function Home() {
       event.preventDefault();
       setDeferredPrompt(event);
     });
+
+    // detect if user installed the app
+    window.addEventListener("appinstalled", function () {
+      console.log("Thank you for installing our app!");
+      setShowAlert(false);
+    });
+    window.onappinstalled = function () {
+      console.log("Thank you for installing our app!");
+      setShowAlert(false);
+    };
+    // window.addEventListener("appinstalled", (event) => {
+    //   console.log(`App installed`, event);
+    //   // app.logEvent("a2hs", "installed");
+    // });
   }, []);
 
   const showAlertInstall = (event) => {
-    deferredPrompt.prompt();
-    deferredPrompt.userChoice.then((choiceResult) => {
+    deferredPrompt?.prompt();
+    deferredPrompt?.userChoice.then((choiceResult) => {
       if (choiceResult.outcome === "accepted") {
         console.log("User accepted");
       }
-      setDeferredPrompt(null);
+      // setDeferredPrompt(null);
     });
   };
 
-  // detect if user installed the app
-  // window.addEventListener("appinstalled", (event) => {
-  //   app.logEvent("a2hs", "installed");
-  // });
   return (
     <div className={styles.container}>
       <SnackBar

@@ -8,6 +8,7 @@ const nextConfig = withPWA({
     dest: "public",
     register: true,
     skipWaiting: true,
+    reloadOnOnline :true,
     // runtimeCaching,
     fallbacks: {
       image: "/static/image/fallback.jpg",

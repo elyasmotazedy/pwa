@@ -3,6 +3,7 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import SnackBar from "my-react-snackbar";
+import Link from "next/link";
 
 export default function Home() {
   const [showAlert, setShowAlert] = useState(false);
@@ -66,7 +67,9 @@ export default function Home() {
         <h1 className={styles.title}>
           Welcome to <a href="https://nextjs.org">Next.js! PWA offline</a>
         </h1>
-
+        <Link href="/login">
+          <a>Login</a>
+        </Link>
         <p className={styles.description}>
           Get started by editing{" "}
           <code className={styles.code}>pages/index.js</code>

@@ -4,10 +4,9 @@ export default function Document() {
   return (
     <Html>
       <Head>
-        <meta charSet="utf-8" />
-        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-        <meta
-          name="viewport"
+      <meta charSet="utf-8" />
+      <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport"
           content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
         />
       <meta name="mobile-web-app-capable" content="yes" />
@@ -22,13 +21,11 @@ export default function Document() {
       <link rel="apple-touch-startup-image" href="/icon-512x512.png" media="(min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)"/>
       <link rel="apple-touch-startup-image" href="/icon-512x512.png" media="(min-device-width: 834px) and (max-device-width: 834px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)"/>
       <link rel="apple-touch-startup-image" href="/icon-512x512.png" media="(min-device-width: 1024px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)"/>
-        <meta name="description" content="Description" />
-        <meta name="keywords" content="Keywords" />
-        <title>Next.js PWA Example</title>
-
-        <link rel="manifest" href="/manifest.json" />
-
-        <meta name="theme-color" content="#317EFB" />
+      <meta name="description" content="Description" />
+      <meta name="keywords" content="Keywords" />
+      <title>Next.js PWA Example</title>
+      <link rel="manifest" href="/manifest.json" />
+      <meta name="theme-color" content="#317EFB" />
       </Head>
       <body>
         <Main />

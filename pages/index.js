@@ -15,18 +15,6 @@ export default function Home() {
       setDeferredPrompt(event);
     });
 
-    async function getInstalledApps() {
-      const installedApps = await navigator.getInstalledRelatedApps();
-
-      console.log("installedApps", installedApps);
-    }
-
-    if ("getInstalledRelatedApps" in navigator) {
-      getInstalledApps();
-    } else {
-      console.log("not supported");
-    }
-
     if (
       window.matchMedia("(display-mode: standalone)").matches ||
       window.navigator.standalone === true
@@ -35,30 +23,14 @@ export default function Home() {
     } else {
       setShowAlert(true);
     }
-
-    window.addEventListener('activate', function(event) {
-      event.waitUntil(
-          caches.keys().then(function(cacheNames) {
-              return Promise.all(
-                  cacheNames.filter(function(cacheName) {
-                      // Return true if you want to remove this cache,
-                      // but remember that caches are shared across
-                      // the whole origin
-                  }).map(function(cacheName) {
-                      return caches.delete(cacheName);
-                  })
-              );
-          })
-      );
-    });
   }, []);
 
   const showAlertInstall = (event) => {
     deferredPrompt?.prompt();
     deferredPrompt?.userChoice.then((choiceResult) => {
-      if (choiceResult.outcome === "accepted") {
-        console.log("User accepted");
-      }
+      // if (choiceResult.outcome === "accepted") {
+      //   console.log("User accepted");
+      // }
       setDeferredPrompt(null);
     });
   };
